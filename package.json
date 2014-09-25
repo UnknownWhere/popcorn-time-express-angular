@@ -1,0 +1,13 @@
+{
+    "name": "web-app-101",
+    "description": "a web application based on node, express, mongodb and grunt task runner with bower dependencies manager",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "4.0.x",
+        "ejs": "~0.8.4"
+    },
+    "devDependencies": {
+
+    }
+}

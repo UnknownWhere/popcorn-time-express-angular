@@ -1,10 +1,121 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Popcorn Time</title>
+<html lang="en" ng-app="movieApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie page</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/styles/xeditable.css" rel="stylesheet">
+    <link href="/styles/style.less" rel="stylesheet/less">
+    <script src="node_modules/less/dist/less-1.7.4.min.js" type="text/javascript"></script>
 </head>
-<body>
-<h1>Popcorn Time</h1>
+<body ng-controller="MainController">
+
+    <div class="cob-header">
+        <div id="cob-app-name">
+            <h1>{{appName}}</h1>
+        </div>
+        <img src="/img/popcorn.png">
+    </div>
+
+    <div id="cob-navigation" class="container">
+        <ul>
+            <li>
+                <a href="#" ng-click="showMovies()"><i class="fa fa-film"></i> movies</a>
+            </li>
+            <li>
+                <a href="#" ng-click="showAdmin()"><i class="fa fa-cog"></i> admin</a>
+            </li>
+        </ul>
+    </div>
+
+    <div ng-controller="SocialController">
+        social {{social}}
+        <br>
+        user {{username}}
+    </div>
+
+    <div  class="container" ng-controller="MovieController">
+        <div ng-show="sMovies">
+            <div class="cob-movie-list" ng-init="loadMovies()">
+                <table class="table table-hover">
+                    <tr style="font-weight: bold">
+                        <td style="width:10%"></td>
+                        <td style="width:15%">Title</td>
+                        <td style="width:40%">Actors</td>
+                        <td style="width:15%">Director</td>
+                        <td style="width:10%">Year</td>
+                    </tr>
+                    <tr ng-repeat="movie in movies">
+                        <td><img src="/img/play.png" /></td>
+                        <td>{{movie.title}}</td>
+                        <td>{{movie.actors}}</td>
+                        <td>{{movie.director}}</td>
+                        <td>{{movie.year}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div ng-show="sAdmin" ng-init="loadMovies()" >
+            <table class="table table-bordered table-hover table-condensed">
+                <tr style="font-weight: bold">
+                    <td style="width:15%">Title</td>
+                    <td style="width:40%">Actors</td>
+                    <td style="width:15%">Director</td>
+                    <td style="width:10%">Year</td>
+                    <td style="width:20%"></td>
+                </tr>
+                <tr ng-repeat="movie in movies">
+                    <td>
+                <span editable-text="movie.title" e-name="title" e-form="rowform"
+                      e-required>
+              {{ movie.title || 'empty' }}
+            </span>
+                    </td>
+                    <td>
+                <span editable-text="movie.actors" e-name="actors" e-form="rowform">
+              {{ movie.actors || 'empty' }}
+            </span>
+                    </td>
+                    <td>
+                <span editable-text="movie.director" e-name="director" e-form="rowform">
+              {{ movie.director || 'empty' }}
+            </span>
+                    </td>
+                    <td>
+                <span editable-text="movie.year" e-name="year" e-form="rowform">
+              {{ movie.year || 'empty' }}
+            </span>
+                    </td>
+                    <td style="white-space: nowrap">
+                        <form editable-form name="rowform" onbeforesave="saveUser($data, movie.id)"
+                              ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == movie">
+                            <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                                save
+                            </button>
+                            <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                    class="btn btn-default">
+                                cancel
+                            </button>
+                        </form>
+                        <div class="buttons" ng-show="!rowform.$visible">
+                            <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+                            <button class="btn btn-danger" ng-click="removeMovie($index)">del</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <button class="btn btn-default" ng-click="addMovie()">Add row</button>
+        </div>
+    </div>
 </body>
+<script src="/node_modules/angular/lib/angular.min.js"></script>
+<!-- <script src="/node_modules/angular-resource/lib/angular-resource.js"></script> -->
+<script src="/node_modules/angular-mocks/angular-mocks.js"></script>
+<script src="/js/services.js"></script>
+<script src="/js/controllers.js"></script>
+<script src="/js/xeditable.min.js"></script>
 </html>

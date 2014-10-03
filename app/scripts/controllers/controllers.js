@@ -2,23 +2,6 @@
 
 var movieApp = angular.module('movieApp', ['xeditable', 'ngMockE2E']);
 
-movieApp.factory('socialService', function() {
-    return {
-        twitter: 'twitter'
-    }
-});
-
-movieApp.factory('userRepository', function() {
-
-    var username = 'John Doe';
-
-    return {
-        getUsername: function() {
-            return username;
-        }
-    }
-});
-
 movieApp.controller('MainController', function($scope){
 
     $scope.appName = 'Popcorn Time';
@@ -45,14 +28,6 @@ movieApp.controller('MovieController', function($scope, $http) {
         });
     };
 });
-
-movieApp.controller('SocialController', function($scope, socialService, userRepository) {
-    $scope.social = socialService.twitter;
-
-    $scope.username = userRepository.getUsername();
-
-});
-
 
 // --------------- mock $http requests ----------------------
 movieApp.run(function($httpBackend) {

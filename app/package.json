@@ -6,7 +6,6 @@
     "angular-mocks": "~1.2.x",
     "angular-route": "~1.2.x",
     "angular-resource": "0.1.0",
-    "angular-xeditable": "0.0.x",
     "bootstrap": "3.2.x",
     "less": "1.7.x"
   },

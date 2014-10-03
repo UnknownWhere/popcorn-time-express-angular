@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Movie page</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/styles/xeditable.css" rel="stylesheet">
+    <link href="styles/xeditable.css" rel="stylesheet">
     <link href="/styles/style.less" rel="stylesheet/less">
-    <script src="node_modules/less/dist/less-1.7.4.min.js" type="text/javascript"></script>
+    <script src="/node_modules/less/dist/less-1.7.4.min.js" type="text/javascript"></script>
 </head>
 <body ng-controller="MainController">
 
@@ -16,7 +16,7 @@
         <div id="cob-app-name">
             <h1>{{appName}}</h1>
         </div>
-        <img src="/img/popcorn.png">
+        <img src="/images/popcorn.png">
     </div>
 
     <div id="cob-navigation" class="container">
@@ -28,12 +28,6 @@
                 <a href="#" ng-click="showAdmin()"><i class="fa fa-cog"></i> admin</a>
             </li>
         </ul>
-    </div>
-
-    <div ng-controller="SocialController">
-        social {{social}}
-        <br>
-        user {{username}}
     </div>
 
     <div  class="container" ng-controller="MovieController">
@@ -48,7 +42,7 @@
                         <td style="width:10%">Year</td>
                     </tr>
                     <tr ng-repeat="movie in movies">
-                        <td><img src="/img/play.png" /></td>
+                        <td><img src="../images/play.png" /></td>
                         <td>{{movie.title}}</td>
                         <td>{{movie.actors}}</td>
                         <td>{{movie.director}}</td>
@@ -112,10 +106,9 @@
         </div>
     </div>
 </body>
-<script src="/node_modules/angular/lib/angular.min.js"></script>
-<!-- <script src="/node_modules/angular-resource/lib/angular-resource.js"></script> -->
-<script src="/node_modules/angular-mocks/angular-mocks.js"></script>
-<script src="/js/services.js"></script>
-<script src="/js/controllers.js"></script>
-<script src="/js/xeditable.min.js"></script>
+<script src="node_modules/angular/lib/angular.min.js"></script>
+<script src="node_modules/angular-mocks/angular-mocks.js"></script>
+<script src="scripts/controllers/xeditable.min.js"></script>
+<script src="scripts/services/services.js"></script>
+<script src="scripts/controllers/controllers.js"></script>
 </html>

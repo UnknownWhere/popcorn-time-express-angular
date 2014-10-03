@@ -1,5 +1,5 @@
 {
-  "name": "mweb-app-101-ui",
+  "name": "popcorn-time-frontend",
   "version": "1.0.0",
   "dependencies": {
     "angular": "1.2.x",
@@ -11,6 +11,6 @@
     "less": "1.7.x"
   },
   "devDependencies": {
-    "angular-mocks": "1.2.x"
+
   }
 }

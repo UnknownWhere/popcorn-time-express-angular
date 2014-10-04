@@ -1,15 +1,15 @@
 {
-  "name": "popcorn-time-frontend",
-  "version": "1.0.0",
-  "dependencies": {
-    "angular": "1.2.x",
-    "angular-mocks": "~1.2.x",
-    "angular-route": "~1.2.x",
-    "angular-resource": "0.1.0",
-    "bootstrap": "3.2.x",
-    "less": "1.7.x"
-  },
-  "devDependencies": {
+    "name": "popcorn-time-frontend",
+    "version": "1.0.0",
+    "dependencies": {
+        "angular": "1.2.x",
+        "angular-mocks": "~1.2.x",
+        "angular-route": "~1.2.x",
+        "angular-resource": "0.1.0",
+        "bootstrap": "3.2.x",
+        "less": "1.7.x"
+    },
+    "devDependencies": {
 
-  }
+    }
 }
